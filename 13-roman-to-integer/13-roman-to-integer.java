@@ -11,21 +11,18 @@ class Solution {
         symbols.put('D',500);
         symbols.put('M',1000);
         
-        for (int i = 0; i < s.length(); i++){
-            x[i] = s.charAt(i);
-        }
-        for(int i = 0; i < x.length; i++) {
-            if(!(i+1 == x.length) && x[i] == 'I' && ((x[i+1] =='V')||(x[i+1] =='X')) ){
-                sum += symbols.get(x[++i]) - 1;
+        for(int i = 0; i < s.length(); i++) {
+            if(!(i+1 == s.length()) && s.charAt(i) == 'I' && ((s.charAt(i+1) =='V')||(s.charAt(i+1) =='X')) ){
+                sum += symbols.get(s.charAt(++i)) - 1;
             }
-            else if (!(i+1 == x.length) && x[i] == 'X' && ((x[i+1] =='L')||(x[i+1] =='C')) ){
-                sum += symbols.get(x[++i]) - 10;
+            else if (!(i+1 == s.length()) && s.charAt(i) == 'X' && ((s.charAt(i+1) =='L')||(s.charAt(i+1) =='C')) ){
+                sum += symbols.get(s.charAt(++i)) - 10;
             }
-            else if (!(i+1 == x.length) && x[i] == 'C' && ((x[i+1] =='D')||(x[i+1] =='M')) ){
-                sum += symbols.get(x[++i]) - 100;
+            else if (!(i+1 == s.length()) && s.charAt(i) == 'C' && ((s.charAt(i+1) =='D')||(s.charAt(i+1) =='M')) ){
+                sum += symbols.get(s.charAt(++i)) - 100;
             }
             else{
-                sum += symbols.get(x[i]);
+                sum += symbols.get(s.charAt(i));
             }
         }
         return sum;
